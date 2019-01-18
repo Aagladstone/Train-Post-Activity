@@ -3,26 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Train Post Activity </title>
+    <title>Train Times Activity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />
-    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>  
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />   -->
     <script src="javascript/app.js"></script>
 </head>
 <body>
-
+<div class="container">
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+        
           <h1 class="display-4"> Train Schedule App </h1>
           <p class="lead">Find your own train or add a location where you would like to go!</p>
         </div>
-      </div>
-
-<div class="container" id="consumer" >
+      
     <h4>Basic Table</h4>
-    <table class="table" id="train-banner">
+    <table class="table table-striped" id="train-banner">
       <thead>
         <tr>
           <!-- The scope attribute specifies that this is a header for a column -->
@@ -33,40 +34,41 @@
           <th scope="col">Minutes Away</th>
         </tr>
       </thead>
-      <tbody id="new-entry"> 
+      <tbody id="newest-train"> 
 
       </tbody>
     </table>
-  </div>
 
-  <div class="container" id="consumer">
+
+
         <form>
             <h4>
                 Add Train
             </h4>
                 <div class="form-group">
-                  <label for="train-name-input">Train Name</label>
-                  <input type="email" class="form-control" id="train-name-input" aria-describedby="emailHelp" placeholder="Enter email">
-                  <small id="emailHelp" class="form-text text-muted">Please input the Train Name of the Train you would like to board</small>
+                    <label for="train-name-input">Train Name</label>
+                    <input class="form-control" id="train-name-input" placeholder="Train Name">
+                    <small id="emailHelp" class="form-text text-muted">Please input the Train Name of the Train you would like to board</small>
                 </div>
                 <div class="form-group">
-                  <label for="destination-input">Train Desination</label>
-                  <input type="password" class="form-control" id="destination-input" placeholder="Password">
-                  <small id="emailHelp" class="form-text text-muted">Please add the city or place you would like your train to go</small>
+                    <label for="destination-input">Train Desination</label>
+                    <input class="form-control" id="destination-input" placeholder="Desination">
+                    <small id="emailHelp" class="form-text text-muted">Please add the city or place you would like your train to go</small>
                 </div>
                 <div class="form-group">
-                        <label for="frequency-input">First Train Time (HH:mm - Military Time)</label>
-                        <input type="email" class="form-control" id="frequency-input" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">What time the train is arriving</small>
-                      </div>
-                      <div class="form-group">
-                        <label for="next-arrival-input">Frequency (in min)</label>
-                        <input type="password" class="form-control" id="next-arrival-input" placeholder="Password">
-                        <small id="emailHelp" class="form-text text-muted">How often the train will arrive</small>
-                      </div>
+                    <label for="first-train-input">First Train Time (HH:mm - Military Time)</label>
+                    <input class="form-control" id="first-train-input" placeholder="HH:mm">
+                    <small id="emailHelp" class="form-text text-muted">What time the train is arriving</small>
+                </div>
+                 <div class="form-group">
+                    <label for="frequency-input">Frequency (in min)</label>
+                    <input class="form-control" id="frequency-input">
+                    <small id="emailHelp" class="form-text text-muted">How often the train will arrive</small>
+                </div>
            
                 <button type="submit" id="new-train" class="btn btn-primary">Submit</button>
               </form>
-  </div>
+
+</div>
 </body>
 </html>
