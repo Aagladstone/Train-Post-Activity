@@ -26,23 +26,18 @@ $("#new-train").on("click", function(event) {
         // First Time (pushed back 1 year to make sure it comes before current time)
         var firstTimeConverted = moment(firstTrain, "HH:mm").subtract(1, "years");
         console.log(firstTimeConverted);
-    
         // Current Time
         var currentTime = moment();
         console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-    
         // Difference between the times
         var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
         console.log("DIFFERENCE IN TIME: " + diffTime);
-    
         // Time apart (remainder)
         var tRemainder = diffTime % frequency;
         console.log(tRemainder);
-    
         // Minute Until Train
         var tMinutesTillTrain = frequency - tRemainder;
         console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-    
         // Next Train
         var nextTrain = moment().add(tMinutesTillTrain, "minutes").format("hh:mm A");
         console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
@@ -71,16 +66,4 @@ $("#new-train").on("click", function(event) {
         var tr = $("<tr>").append(tName, place, timing, nextArrival, minutesAway);
         $("#newest-train").append(tr);
       });
-
-
-
-
-
-
-
-
-
-
-
-
 });

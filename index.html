@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />   -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />  
     <script src="javascript/app.js"></script>
 </head>
 <body>
@@ -22,16 +22,16 @@
           <p class="lead">Find your own train or add a location where you would like to go!</p>
         </div>
       
-    <h4>Basic Table</h4>
+    <h4 id="train-board">Train Board</h4>
     <table class="table table-striped" id="train-banner">
       <thead>
         <tr>
           <!-- The scope attribute specifies that this is a header for a column -->
-          <th scope="col">Train Name</th>
-          <th scope="col">Destination</th>
-          <th scope="col">Frequency (in min)</th>
-          <th scope="col">Next Arrival</th>
-          <th scope="col">Minutes Away</th>
+          <th scope="col" class="name">Train Name</th>
+          <th scope="col" class="name">Destination</th>
+          <th scope="col" class="name">Frequency (in min)</th>
+          <th scope="col" class="name">Next Arrival</th>
+          <th scope="col" class="name">Minutes Away</th>
         </tr>
       </thead>
       <tbody id="newest-train"> 
@@ -41,29 +41,29 @@
 
 
 
-        <form>
-            <h4>
+        <form id="which-train">
+            <h4 id="add-train">
                 Add Train
             </h4>
                 <div class="form-group">
-                    <label for="train-name-input">Train Name</label>
+                    <label for="train-name-input" class="train-label">Train Name</label>
                     <input class="form-control" id="train-name-input" placeholder="Train Name">
-                    <small id="emailHelp" class="form-text text-muted">Please input the Train Name of the Train you would like to board</small>
+                    <small id="emailHelp" class="form-text">Please input the Train Name of the Train you would like to board</small>
                 </div>
                 <div class="form-group">
-                    <label for="destination-input">Train Desination</label>
+                    <label for="destination-input" class="train-label">Train Desination</label>
                     <input class="form-control" id="destination-input" placeholder="Desination">
-                    <small id="emailHelp" class="form-text text-muted">Please add the city or place you would like your train to go</small>
+                    <small id="emailHelp" class="form-text">Please add the city or place you would like your train to go</small>
                 </div>
                 <div class="form-group">
-                    <label for="first-train-input">First Train Time (HH:mm - Military Time)</label>
+                    <label for="first-train-input" class="train-label">First Train Time (HH:mm - Military Time)</label>
                     <input class="form-control" id="first-train-input" placeholder="HH:mm">
-                    <small id="emailHelp" class="form-text text-muted">What time the train is arriving</small>
+                    <small id="emailHelp" class="form-text">What time the train is arriving</small>
                 </div>
                  <div class="form-group">
-                    <label for="frequency-input">Frequency (in min)</label>
-                    <input class="form-control" id="frequency-input">
-                    <small id="emailHelp" class="form-text text-muted">How often the train will arrive</small>
+                    <label for="frequency-input" class="train-label">Frequency (in min)</label>
+                    <input class="form-control" id="frequency-input" placeholder="min">
+                    <small id="emailHelp" class="form-text">How often the train will arrive</small>
                 </div>
            
                 <button type="submit" id="new-train" class="btn btn-primary">Submit</button>
